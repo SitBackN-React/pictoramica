@@ -113,7 +113,7 @@ const PostLike = props => {
       })
   }
 
-  const likeIcon = userLike.liked ? './../../images/like-icon.png' : './../../images/unlike-icon.png'
+  const likeIcon = userLike.liked ? 'https://user-images.githubusercontent.com/53062479/113616652-635d1b00-9623-11eb-9a1c-e62d2101bbc8.png' : 'https://user-images.githubusercontent.com/53062479/113616738-7cfe6280-9623-11eb-8a8b-9dd24a1cf513.png'
   const likeCount = postLikeCount.postLikedCount
   return (
     <div className="like-button">
