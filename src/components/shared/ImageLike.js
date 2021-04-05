@@ -37,7 +37,7 @@ const ImageLike = props => {
       url: `${apiUrl}/images/${image._id}/imageLikes`,
       method: 'POST',
       headers: {
-        'Authorization': `Token token=${user.token}`
+        'Authorization': `Bearer ${user.token}`
       },
       data: { imageLike: {
         liked: true
@@ -83,7 +83,7 @@ const ImageLike = props => {
       url: `${apiUrl}/images/${image._id}/imageLikes/${likeId.imageLikedId}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Token token=${user.token}`
+        'Authorization': `Bearer ${user.token}`
       }
     })
       // sets the userLike to false
