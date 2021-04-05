@@ -12,7 +12,7 @@ class SignIn extends Component {
     super(props)
 
     this.state = {
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -35,7 +35,7 @@ class SignIn extends Component {
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        this.setState({ email: '', password: '' })
+        this.setState({ username: '', password: '' })
         msgAlert({
           heading: 'Sign In Failed with error: ' + error.message,
           message: messages.signInFailure,
@@ -45,7 +45,7 @@ class SignIn extends Component {
   }
 
   render () {
-    const { email, password } = this.state
+    const { username, password } = this.state
 
     return (
       <div className="row">
@@ -53,13 +53,14 @@ class SignIn extends Component {
           <h3>Sign In</h3>
           <Form onSubmit={this.onSignIn}>
             <Form.Group controlId="email">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 required
-                type="email"
-                name="email"
-                value={email}
-                placeholder="Enter email"
+                type="text"
+                name="username"
+                value={username}
+                autoComplete="username"
+                placeholder="Enter username"
                 onChange={this.handleChange}
               />
             </Form.Group>
@@ -69,6 +70,7 @@ class SignIn extends Component {
                 required
                 name="password"
                 value={password}
+                autoComplete="current-password"
                 type="password"
                 placeholder="Password"
                 onChange={this.handleChange}
