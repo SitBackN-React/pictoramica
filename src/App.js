@@ -16,7 +16,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import HomePage from './components/routes/HomePage'
 
 // Images
-import UploadS3Image from './components/routes/ImageCreate'
+import ImageCreate from './components/routes/ImageCreate'
 import AllImages from './components/routes/AllImages'
 import MyImages from './components/routes/MyImages'
 import Image from './components/routes/Image'
@@ -108,10 +108,10 @@ class App extends Component {
 
           {/* Images */}
           <AuthenticatedRoute user={user} path='/post-image' render={(props) => (
-            <UploadS3Image
+            <ImageCreate
               {...props}
               msgAlert={this.msgAlert}
-              setImage={this.setImage}
+              // setImage={this.setImage}
               user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/my-images' render={() => (

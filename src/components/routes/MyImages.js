@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 import axios from 'axios'
 import apiUrl from './../../apiConfig'
@@ -64,6 +65,9 @@ const MyImages = (props) => {
         paginate={paginate}
         style={{ margin: '20px' }}
       />
+      <Link to={'/post-image'}>
+        <button className="button btn btn-dark btn-lg">Add New Image</button>
+      </Link>
     </div>
   )
 }
