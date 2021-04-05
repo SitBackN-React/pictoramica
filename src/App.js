@@ -5,12 +5,46 @@ import { v4 as uuid } from 'uuid'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
+
+// User
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
+// HomePage
 import HomePage from './components/routes/HomePage'
+
+// Images
+import UploadS3Image from './components/routes/ImageCreate'
+import AllImages from './components/routes/AllImages'
+import MyImages from './components/routes/MyImages'
+import Image from './components/routes/Image'
+import ImageTag from './components/routes/ImageTag'
+import EditS3Image from './components/routes/ImageEdit'
+
+// Blogs
+import BlogCreate from './components/routes/BlogCreate'
+import AllBlogs from './components/routes/AllBlogs'
+import MyBlogs from './components/routes/MyBlogs'
+import Blog from './components/routes/Blog'
+import BlogEdit from './components/routes/BlogEdit'
+
+// Posts
+import PostCreate from './components/routes/PostCreate'
+import Post from './components/routes/Post'
+import PostPublic from './components/routes/PostPublic'
+import PostEdit from './components/routes/PostEdit'
+
+// Comments
+import CommentCreate from './components/routes/CommentCreate'
+import CommentDelete from './components/routes/CommentDelete'
+
+// Cart
+import Cart from './components/routes/Cart'
+
+// Text Editor
+import TextEditor from './components/routes/TextEditor'
 
 class App extends Component {
   constructor (props) {
@@ -58,6 +92,7 @@ class App extends Component {
           <HomePage {...props} msgAlert={this.msgAlert} user={user} />
         )} />
         <main className="container">
+          {/* User Account */}
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -70,6 +105,80 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+
+          {/* Images */}
+          <AuthenticatedRoute user={user} path='/post-image' render={(props) => (
+            <UploadS3Image
+              {...props}
+              msgAlert={this.msgAlert}
+              setImage={this.setImage}
+              user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/my-images' render={() => (
+            <MyImages msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/images/:imageId/edit-image' render={(props) => (
+            <EditS3Image {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/images/:imageId' render={(props) => (
+            <Image {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/all-images' render={(props) => (
+            <AllImages {...props} msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/all-images/tag' render={(props) => (
+            <ImageTag {...props} msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          {/* Blogs */}
+          <AuthenticatedRoute user={user} exact path='/create-blog' render={() => (
+            <BlogCreate msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/all-blogs' render={(props) => (
+            <AllBlogs {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId' render={(props) => (
+            <Blog {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/my-blogs' render={(props) => (
+            <MyBlogs {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/edit-blog' render={(props) => (
+            <BlogEdit {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+
+          {/* Posts */}
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/create-post' render={(props) => (
+            <PostCreate {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/posts/:postId' render={(props) => (
+            <Post {...props} token={this.state.user ? this.state.user.token : null} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/posts/:postId/post-public' render={(props) => (
+            <PostPublic {...props} token={this.state.user ? this.state.user.token : null} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/posts/:postId/edit-post' render={(props) => (
+            <PostEdit {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+
+          {/* Comments */}
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/posts/:postId/comment-create' render={(props) => (
+            <CommentCreate {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} exact path='/blogs/:blogId/posts/:postId/comment-delete' render={(props) => (
+            <CommentDelete {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+
+          {/* Cart */}
+          <AuthenticatedRoute user={user} path='/cart' render={(props) => (
+            <Cart {...props} msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          {/* Text Editor */}
+          <AuthenticatedRoute user={user} exact path='/text-editor' render={(props) => (
+            <TextEditor {...props} msgAlert={this.msgAlert} user={user}/>
+          )} />
+
         </main>
       </Fragment>
     )
