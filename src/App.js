@@ -10,6 +10,8 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
+import HomePage from './components/routes/HomePage'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -52,6 +54,9 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
+        <AuthenticatedRoute user={user} path='/home-page' render={(props) => (
+          <HomePage {...props} msgAlert={this.msgAlert} user={user} />
+        )} />
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />

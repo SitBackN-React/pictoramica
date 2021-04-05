@@ -1,1 +1,278 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background-attachment: fixed;
+  background-image: linear-gradient((rgba(0, 0, 0, .3)), (rgba(0, 0, 0, 0))), url('https://user-images.githubusercontent.com/53062479/113451621-57c5e600-93d0-11eb-8a76-af23cb0d3a1c.jpg');
+  background-repeat: no-repeat;
+  color: white;
+}
+
+url {
+  opacity: .5;
+}
+å
+.img-preview {
+  border-radius: 20px;
+  padding: 5px;
+  width: 300px;
+}
+
+.DraftEditor-root {
+  background-color: rgba(0, 0, 0, 0.46);
+  border: 2px solid white;
+  color: white;
+  height: 100px;
+}
+
+.image-like-box {
+  height: 30px;
+  margin: 5px 15px 2px;
+  width: 30px;
+}
+
+.post-like-box {
+  height: 30px;
+  margin: 5px 15px 2px;
+  width: 30px;
+}
+
+.comment-list {
+  background-color: rgba(0, 0, 0, 0.60);
+  border-radius: 10px;
+  border: 2px solid #000000;
+  list-style: none;
+  margin: 25px 15px;
+  padding: 20px;
+  width: 50%
+}
+
+.like-button {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.like-icon {
+  height: 17px;
+  width: 17px;
+}
+
+.like-icon-post {
+  height: 25px;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 25px;
+}
+
+.like-count {
+  margin-bottom: 0;
+  margin-left: 3px;
+  margin-top: 0;
+}
+
+.for-sale-icon {
+  font-size: 8px;
+  height: 20px;
+  margin-left: 5px;
+  width: 20px;
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  animation: load 1s infinite linear;
+  border-left: 4px solid;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  height: 25px;
+  width: 25px;
+}
+
+.image-create-body {
+  align-items: center;
+  text-align: center;
+}
+
+.right {
+  align-items: center;
+  background-color: #FFFFF0;
+  border-radius: 20px;
+  color: black;
+  display: block;
+  height: 500px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0;
+  padding-top: 100px;
+  width: 500px;
+}
+
+.left {
+  margin: 10px;
+}
+
+.center {
+  align-items: center;
+  display: inline-flex;
+}
+
+.share {
+  align-items: center;
+  text-align: center;
+}
+
+.add-image {
+  display: block;
+  height: 500px;
+  margin-left: 0;
+  margin-right: auto;
+  width: 500px;
+}
+
+.nav-bar {
+  background-color: linear-gradient((rgba(0, 0, 0, .5)), (rgba(0, 0, 0, .02)));
+}
+
+.welcome-user {
+  align-items: left;
+  background-color: hsla(0, 0%, 78%, 0.55);
+  color: white;
+}
+
+.nav-link.active {
+  background-color: rgba(0, 0, 0, 0.43) !important;
+  border-color: rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  border-style: solid;
+  color: white !important;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.43);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border-style: solid;
+  color: white;
+}
+
+.nav-link {
+  border-color: rgba(255, 255, 255, 0.0);
+  border-radius: 10px;
+  border-style: solid;
+  color: white !important;
+}
+
+.nav-links {
+  justify-content: space-evenly;
+}
+
+.jumbotron {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  color: #000;
+  margin: 20px;
+  padding-bottom: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.bordercolor-choice {
+  cursor: pointer;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-left: 40px;
+  position: relative;
+}
+
+// Hide the default radio button
+.bordercolor-choice input {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+// custom radio button
+.check {
+  border-radius: 50%;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.check:after {
+  content: '';
+  display: none;
+  position: absolute;
+}
+
+.bordercolor-choice input:checked ~ .check:after {
+  display: block;
+}
+
+.bordercolor-choice .check:after {
+	background: black;
+	border-radius: 50%;
+	height: 15px;
+	left: 8px;
+	width: 15px;
+ 	top: 8px;
+  opacity: 0.6;
+}
+
+.title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textBlog {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#checkout-button {
+  background: #556cd6;
+  border-radius: 0 0 6px 6px;
+  border: 0;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  letter-spacing: 0.6;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+#checkout-button:hover {
+  opacity: 0.8;
+}
