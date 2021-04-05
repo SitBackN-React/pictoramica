@@ -15,15 +15,15 @@ const PostForm = ({ post, handleSubmit, handleChange, cancelPath }) => (
       />
     </div>
     <div>
-      <label>Post Content</label>
-      <input
-        placeholder="Ex: I believe that..."
+      <label>Content</label>
+      <textarea
+        placeholder="Ex: My first blog post is about..."
         value={post.content || ''}
         name="content"
         onChange={handleChange}
         cols="25"
         rows="10"
-      />
+      ></textarea>
     </div>
     <br />
     <button type="submit" className="btn btn-primary">Submit</button>
