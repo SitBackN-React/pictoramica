@@ -37,7 +37,7 @@ const PostLike = props => {
       url: `${apiUrl}/blogs/${props.match.params.blogId}/posts/${post._id}/postLikes`,
       method: 'POST',
       headers: {
-        'Authorization': `Token token=${user.token}`
+        'Authorization': `Bearer ${user.token}`
       },
       data: { postLike: {
         liked: true
@@ -83,7 +83,7 @@ const PostLike = props => {
       url: `${apiUrl}/blogs/${props.match.params.blogId}/posts/${post._id}/postLikes/${likeId.postLikedId}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Token token=${user.token}`
+        'Authorization': `Bearer ${user.token}`
       }
     })
       // sets the userLike to false

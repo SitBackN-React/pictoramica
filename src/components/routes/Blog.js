@@ -19,7 +19,7 @@ const Blog = (props) => {
       url: `${apiUrl}/blogs/${props.match.params.blogId}`,
       method: 'GET',
       headers: {
-        'Authorization': `Token token=${props.user.token}`
+        'Authorization': `Bearer ${props.user.token}`
       }
     })
       .then(res => setBlog(res.data.blog))
@@ -43,7 +43,7 @@ const Blog = (props) => {
       url: `${apiUrl}/blogs/${props.match.params.blogId}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Token token=${props.user.token}`
+        'Authorization': `Bearer ${props.user.token}`
       }
     })
       .then(() => setDeleted(true))
